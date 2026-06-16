@@ -15,9 +15,17 @@ export default function SignupPage() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
+  const [secretCode, setSecretCode] = useState('')
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     setError(null)
+
+    if (secretCode !== 'NASCRAFT2026') {
+      setError('Invalid workspace creation code.')
+      return
+    }
+
     setLoading(true)
     const { error } = await signUp(email, password, fullName, companyName)
     setLoading(false)
@@ -66,6 +74,16 @@ export default function SignupPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="At least 6 characters"
+            />
+          </div>
+          <div className="pt-2 border-t border-white/5">
+            <label className="text-xs text-slate font-medium mb-1.5 block">Secret Workspace Code</label>
+            <Input
+              type="password"
+              required
+              value={secretCode}
+              onChange={(e) => setSecretCode(e.target.value)}
+              placeholder="Enter creation code"
             />
           </div>
           {error && <p className="text-sm text-ember">{error}</p>}

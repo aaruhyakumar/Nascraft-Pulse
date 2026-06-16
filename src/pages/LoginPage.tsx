@@ -102,10 +102,7 @@ export default function LoginPage() {
 
           <div className="mt-8 pt-6 border-t border-white/5 text-center">
             <p className="text-sm text-slate">
-              New to Nascraft Pulse?{' '}
-              <Link to="/signup" className="text-ember hover:text-emberSoft font-medium transition-colors">
-                Create your workspace
-              </Link>
+              Need help? Contact your workspace administrator.
             </p>
           </div>
         </div>
