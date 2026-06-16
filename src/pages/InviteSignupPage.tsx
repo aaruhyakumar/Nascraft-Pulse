@@ -110,7 +110,9 @@ export default function InviteSignupPage() {
         {/* Company badge */}
         <div className="mb-6 px-4 py-3 rounded-xl border border-ember/20 bg-ember/5">
           <p className="text-xs text-slate font-mono">You've been invited to join</p>
-          <p className="font-display text-lg font-semibold text-paper mt-0.5">{invite!.companies.name}</p>
+          <p className="font-display text-lg font-semibold text-paper mt-0.5">
+            {invite!.companies?.name || 'your team\'s workspace'}
+          </p>
           <p className="text-xs text-slate mt-1 capitalize">
             as <span className="text-ember">{invite!.role.replace('_', ' ')}</span>
           </p>
